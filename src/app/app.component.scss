@@ -1,0 +1,23 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  & .card-layout {
+    width: 60%;
+    & .card-header {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+  }
+
+  & .input-field {
+    width: 100%;
+    & .save-icon {
+      
+    }
+  }
+
+
+}
+
+
