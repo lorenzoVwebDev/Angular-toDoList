@@ -7,7 +7,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialog, MatDialogModule } from '@angular/material/dialog';
+//components
 import { ModalConfirmationComponent } from './modal-confirmation/modal-confirmation.component';
+import { WelcomeCardComponent } from './welcome-card/welcome-card.component';
 
 interface ITodo {
   id: number;
@@ -24,7 +26,7 @@ type emptyArray = []
   template: `
     <h1>Hello</h1>
   `,
-  imports: [MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatCheckboxModule, FormsModule, NgClass, MatDialogModule],
+  imports: [MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatCheckboxModule, FormsModule, NgClass, MatDialogModule, WelcomeCardComponent],
   styleUrl: './app.component.scss'
 })
 
