@@ -1,6 +1,7 @@
 .card-container {
   display: flex;
   justify-content: center;
+  padding-top: 1%;
   & .card-layout {
     width: 60%;
     & .card-header {
@@ -15,6 +16,15 @@
     & .save-icon {
       
     }
+  }
+  & .task-done {
+          text-decoration: line-through;
+  }
+
+  & .listing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
 

@@ -4,11 +4,48 @@
       <mat-card-title> ToDoList Project </mat-card-title>
     </mat-card-header>
     <mat-card-content>
+      @if (selectedId >= 0) {
+              <div style="
+        display: flex;
+        justify-content: center;
+        color: red;
+      "><h2>Update Your Task</h2></div>
+      }
         <mat-form-field appearance="fill" class="input-field">
       <mat-label>Describe What To Do</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>save</mat-icon>
+      <input matInput placeholder="Placeholder" [(ngModel)]="description">
+      @if (selectedId >= 0) {
+        <mat-icon matSuffix (click)="updateTask(selectedId)">save_as</mat-icon>
+      } @else {
+                <mat-icon matSuffix (click)="saveFunc()">save</mat-icon>
+      }
+      
     </mat-form-field>
+    <!-- $index returns the index of the array's item -->
+    @for (task of toDoList(); track task.id; let i = $index) {
+          <div class="listing">
+      <div>
+        <mat-checkbox (click)="checkMarkChanged(i)" [disabled]="selectedId>=0"><span [ngClass]="{'task-done': task.done}">{{task.description}}</span></mat-checkbox>
+      </div>
+      @if (selectedId<0) {
+        <div>
+        @if (!task.done) {
+          <mat-icon matSuffix (click)="editTask(task)" >edit</mat-icon>
+        }
+        <mat-icon matSuffix (click)="deleteConfirmation(task.id)">delete</mat-icon>
+      </div>
+      }
+    </div>
+    } @empty {
+      <div style="
+        display: flex;
+        justify-content: center;
+        color: red;
+      "><h2>No saved task</h2></div>
+    }
     </mat-card-content>
   </mat-card>
 </div>
+<br>
+<br>
+<br>
